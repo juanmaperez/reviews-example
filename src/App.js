@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from 'react';
+import Layout from './components/Layout/Layout';
+import Form from './components/Form/Form';
+import { commentsReducer, initialState } from './reducers/comments';
+import CommentList from './components/CommentList/CommentList'
+import Graph from './components/Graph/Graph'
+import Loading from './styled-components/Loading'
+import { CommentListWrapper } from './styled-components/CommentList'
 
 function App() {
+  const [{loading, error, comments, totalRating}, dispatch] = useReducer(commentsReducer, initialState)
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout>
+        <Form handleComment={dispatch}/>
+        <Graph/>
+        <CommentListWrapper>
+          { loading 
+          ? <Loading /> 
+          : <CommentList/> }
+        </CommentListWrapper>
+      </Layout>
     </div>
   );
 }
