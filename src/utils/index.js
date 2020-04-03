@@ -21,3 +21,13 @@ export const validate = (values, setError) => {
   }
   return values
 }
+
+
+export const getCommentsFromLocalStorage = () => {
+  return JSON.parse(localStorage.getItem('comments'))
+}
+
+export const setCommentsLocalStorage = (comments) => {
+  console.log(comments)
+  localStorage.setItem('comments', JSON.stringify(comments))
+} 

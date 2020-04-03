@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { FormWrapper, FormTitle, FieldsetWrapper, Alert, Button } from './../../styled-components/form'
 import Rating from './Rating'
 import { validate } from './../../utils'
+import { ADD_COMMENT } from '../../constants'
+import { addCommentAction } from '../../actions/comments'
 
 const initialState = {
   name: '',
@@ -24,9 +26,10 @@ const Form = ({handleComment}) => {
 
   
   const handleSubmit = (e) => {
+    e.preventDefault()
     validate(values, setError)
     if(!error){
-      handleComment(values)
+      addCommentAction(values)(handleComment)
     }
   }
   
@@ -42,8 +45,7 @@ const Form = ({handleComment}) => {
         <textarea name="comment" value={values.comment} onChange={handleOnChange} placeholder="Leave a comment"/>
       </FieldsetWrapper>
       <Button type="submit">Enviar</Button>
-      { values.error && <Alert type={'error'}>{values.error}</Alert>}
-      { values.success && <Alert type={'error'}>Tu mensaje se ha enviado correctamente</Alert>}
+      { error && <Alert type={'error'}>{error}</Alert>}
     </FormWrapper>
   )
 }
