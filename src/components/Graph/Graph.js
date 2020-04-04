@@ -27,8 +27,8 @@ export default ({comments, totalRating}) => {
 
   return commentsByRate && (
     <GraphWrapper>
-      <span className="average">{totalRating}</span>
-      { allRates.map((value) => <Bar value={value} percentage={ calculatePercentage(commentsByRate[value], total)  }/>) }
+      <span data-testid="rating" className="average">{totalRating}</span>
+      { allRates.map((value, i) => <Bar value={value} key={i} percentage={ calculatePercentage(commentsByRate[value], total)  }/>) }
     </GraphWrapper>)
 
 }

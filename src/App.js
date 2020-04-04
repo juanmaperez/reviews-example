@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div data-testid="app" className="App">
       <Layout>
         <Form handleComment={dispatch}/>
         <Graph comments={comments} totalRating={totalRating}/>

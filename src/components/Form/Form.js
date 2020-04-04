@@ -26,24 +26,26 @@ const Form = ({handleComment}) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    validate(values, setError)
-    if(!error){
-      addCommentAction(values)(handleComment)
+    const result = validate(values)
+    if(result.error){
+      return setError(values.error)
     }
+    addCommentAction(values)(handleComment)
+
   }
   
   return (
     <FormWrapper onSubmit={handleSubmit}>
       <FormTitle>Leave your review</FormTitle>
       <FieldsetWrapper>
-        <input type="text" name="name" value={values.name} onChange={handleOnChange} placeholder="name"/>
-        <input type="text" name="email" value={values.email} onChange={handleOnChange} placeholder="Email"/>
+        <input data-testid="nameInput" type="text" name="name" value={values.name} onChange={handleOnChange} placeholder="name"/>
+        <input data-testid="emailInput" type="text" name="email" value={values.email} onChange={handleOnChange} placeholder="Email"/>
         <Rating currentRate={values.rate} setRate={handleOnChange}/>
       </FieldsetWrapper>
       <FieldsetWrapper>
-        <textarea name="comment" value={values.comment} onChange={handleOnChange} placeholder="Leave a comment"/>
+        <textarea data-testid="commentInput" name="comment" value={values.comment} onChange={handleOnChange} placeholder="Leave a comment"/>
       </FieldsetWrapper>
-      <Button type="submit">Enviar</Button>
+      <Button type="submit">Send</Button>
       { error && <Alert type={'error'}>{error}</Alert>}
     </FormWrapper>
   )

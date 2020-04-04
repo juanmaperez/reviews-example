@@ -3,21 +3,21 @@ export const emailIsValid = email => {
 };
 
 
-export const validate = (values, setError) => {
+export const validate = (values) => {
   if ( values.name.length < 5 ) {
-    setError('Name is required');
+    values['error'] = 'Name is required';
   } 
   if(values.email === '' ){
-    setError('Email required required');
+    values['error'] = 'Email required required';
   }
   if(!emailIsValid(values.email)){
-    setError('Invalid email');
+    values['error'] = 'Invalid email';
   }
   if(values.rate < 1 ){
-    setError('Rate is required');
+    values['error'] = 'Rate is required';
   }
   if(values.comment === '' ){
-    setError('Comment is required');
+    values['error'] = 'Comment is required';
   }
   return values
 }

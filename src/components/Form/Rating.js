@@ -11,6 +11,7 @@ export default (props) => {
   return <RatingWrapper>
     { rates.map(value => (
         <Star
+          data-testid="rateBtn"
           key={value} 
           className={value <= props.currentRate ? 'selected': '' } 
           onClick={() => handleSetRate(value)}

@@ -5,7 +5,7 @@ import Rating from '../../components/Form/Rating'
 export default ({ item }) => {
   return (
   <ItemWrapper>
-    <div>
+    <div data-testid="comment">
       <strong>{ item.name }</strong>
       <p>{ item.comment }</p>
     </div>
