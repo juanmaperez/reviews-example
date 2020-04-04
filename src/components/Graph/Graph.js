@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { GraphWrapper } from './../../styled-components/Graph'
+import { GraphWrapper } from './../../styled-components/graph'
 import Bar from './Bar'
 
 export default ({comments, totalRating}) => {

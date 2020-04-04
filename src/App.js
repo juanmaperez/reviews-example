@@ -4,8 +4,8 @@ import Form from './components/Form/Form';
 import { commentsReducer, initialState } from './reducers/comments';
 import CommentList from './components/CommentList/CommentList'
 import Graph from './components/Graph/Graph'
-import Loading from './styled-components/Loading'
-import { CommentListWrapper } from './styled-components/CommentList'
+import Loading from './styled-components/loading'
+import { CommentListWrapper } from './styled-components/commentList'
 import { fetchCommentsAction } from './actions/comments'
 
 function App() {

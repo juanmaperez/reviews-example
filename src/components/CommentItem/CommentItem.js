@@ -1,5 +1,5 @@
 import React from 'react'
-import { ItemWrapper } from './../../styled-components/CommentList'
+import { ItemWrapper } from './../../styled-components/commentList'
 import Rating from '../../components/Form/Rating'
 
 export default ({ item }) => {

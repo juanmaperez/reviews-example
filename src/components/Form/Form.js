@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { FormWrapper, FormTitle, FieldsetWrapper, Alert, Button } from './../../styled-components/form'
 import Rating from './Rating'
 import { validate } from './../../utils'
-import { ADD_COMMENT } from '../../constants'
 import { addCommentAction } from '../../actions/comments'
 
 const initialState = {
@@ -35,7 +34,7 @@ const Form = ({handleComment}) => {
   
   return (
     <FormWrapper onSubmit={handleSubmit}>
-      <FormTitle>Leave a review for this product</FormTitle>
+      <FormTitle>Leave your review</FormTitle>
       <FieldsetWrapper>
         <input type="text" name="name" value={values.name} onChange={handleOnChange} placeholder="name"/>
         <input type="text" name="email" value={values.email} onChange={handleOnChange} placeholder="Email"/>
