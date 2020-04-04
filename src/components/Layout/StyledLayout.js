@@ -9,4 +9,5 @@ export const StyledLayout = styled.div`
   padding: 30px;
   box-sizing: border-box;
   flex-wrap:wrap;
+
 `

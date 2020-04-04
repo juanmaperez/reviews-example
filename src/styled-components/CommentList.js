@@ -21,4 +21,8 @@ export const ItemWrapper = styled.div`
   p {
     color: #999;
   }
+  @media(max-width:600px){
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `

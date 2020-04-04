@@ -28,6 +28,11 @@ export const getCommentsFromLocalStorage = () => {
 }
 
 export const setCommentsLocalStorage = (comments) => {
-  console.log(comments)
   localStorage.setItem('comments', JSON.stringify(comments))
 } 
+
+export const calculateTotalRating = (comments) => {
+  const total = comments.length;
+  const addition = comments.reduce((acc, item ) => acc+item.rate , 0)
+  return (addition/total).toFixed(1);
+}

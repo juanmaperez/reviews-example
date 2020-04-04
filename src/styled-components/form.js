@@ -13,6 +13,9 @@ export const FormWrapper = styled.form`
   width: 50%;
   padding: 10px;
   box-sizing: border-box;
+  @media(max-width:600px){
+    width: 100%;
+  }
 `
 
 export const FieldsetWrapper = styled.div`
@@ -93,7 +96,7 @@ background: ${({type}) => type === 'error' ? '#ff5252' : '#34a883'};
 export const Star = styled.div`
   margin: 10px 3px;
   position: relative;
-  display: block;
+  display: inline-block;
   color: #333;
   width: 0px;
   height: 0px;

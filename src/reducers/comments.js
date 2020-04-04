@@ -1,4 +1,5 @@
 import { FETCH_COMMENTS, SUCCESS, ERROR, ADD_COMMENT } from './../constants'
+import { calculateTotalRating } from './../utils'
 
 export const initialState = {
   comments: [],
@@ -19,14 +20,14 @@ export const commentsReducer = (state = initialState, action) => {
         comments: [...state.comments, action.payload],
         loading: false,
         error: false,
-        totalRating: [...state.comments, action.payload].reduce((acc, item, index, arr) => acc + item.rate,0)/state.comments.length + 1
+        totalRating: calculateTotalRating([...state.comments, action.payload])
       }
     case SUCCESS:
       return {
         comments: action.payload,
         loading: false,
         error: false,
-        totalRating: [action.payload].reduce((acc, item, index, arr) => acc + item.rate,0)/action.payload.length
+        totalRating: calculateTotalRating(action.payload)
 
       }
     case ERROR: 
