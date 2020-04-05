@@ -1,4 +1,4 @@
-import { emailIsValid, validate } from './index'
+import { emailIsValid, validate, calculateTotalRating } from './index'
 
 describe('email is valid' , () => {
   test('it returns false when is not valid', () => {
@@ -23,3 +23,21 @@ describe('validates' , () => {
     expect(result.error).toBe('Comment is required')
   })
 })
+
+describe('calculateTotalRating', () => {
+  test('it returns 0 when array is empty', () => {
+    const comments = []
+    const result = calculateTotalRating(comments)
+    expect(result).toBe(0)
+  })
+  test('it returns the correct value', () => {
+    const comments = [
+      { name: 'Juanma', rate: 2, email: 'juanmaperez@gmail.com', comment: 'here is a comment'},
+      { name: 'Juanma P', rate: 4, email: 'juanmaperezvar@gmail.com', comment: 'here is a comment 2'}
+    ]
+    const result = calculateTotalRating(comments)
+    expect(result).toBe(3)
+  })
+})
+
+

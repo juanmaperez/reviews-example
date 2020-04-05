@@ -33,6 +33,10 @@ export const setCommentsLocalStorage = (comments) => {
 
 export const calculateTotalRating = (comments) => {
   const total = comments.length;
-  const addition = comments.reduce((acc, item ) => acc+item.rate , 0)
-  return (addition/total).toFixed(1);
+  if(total < 1) return 0; 
+
+  const addition = comments.reduce((acc, item ) => acc+item.rate, 0)/total
+  
+  return addition % 1 === 0 ? addition : addition.toFixed(1);
 }
+
