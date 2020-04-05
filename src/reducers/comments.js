@@ -17,7 +17,7 @@ export const commentsReducer = (state = initialState, action) => {
       }
     case ADD_COMMENT:
       return {
-        comments: [...state.comments, action.payload],
+        comments: [action.payload, ...state.comments],
         loading: false,
         error: false,
         totalRating: calculateTotalRating([...state.comments, action.payload])

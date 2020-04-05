@@ -23,6 +23,9 @@ const Form = ({handleComment}) => {
     }))
   }
 
+  const resetForm = () => {
+    setValues(initialState)
+  }
   
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -31,7 +34,7 @@ const Form = ({handleComment}) => {
       return setError(values.error)
     }
     addCommentAction(values)(handleComment)
-
+    resetForm()
   }
   
   return (
